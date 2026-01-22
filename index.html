@@ -432,6 +432,94 @@
         animation-delay: 1.5s;
       }
 
+      .video-section {
+        padding: 92px 0;
+      }
+
+      .video-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 26px;
+      }
+
+      .video-header p {
+        margin: 10px 0 0;
+        color: var(--ink-2);
+      }
+
+      .carousel-controls {
+        display: flex;
+        gap: 10px;
+      }
+
+      .carousel-btn {
+        border: 1px solid var(--stroke);
+        background: rgba(9, 16, 25, 0.7);
+        color: var(--ink);
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .carousel-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(2, 6, 12, 0.35);
+      }
+
+      .video-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: clamp(280px, 80vw, 860px);
+        gap: 24px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 12px;
+        scroll-behavior: smooth;
+      }
+
+      .video-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        background: rgba(9, 16, 25, 0.7);
+        height: clamp(280px, 44vw, 520px);
+        scroll-snap-align: center;
+        box-shadow: 0 28px 50px rgba(2, 6, 12, 0.5);
+      }
+
+      .video-card video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .video-label {
+        position: absolute;
+        left: 18px;
+        bottom: 18px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(9, 16, 25, 0.75);
+        border: 1px solid var(--stroke);
+        font-size: 0.9rem;
+        color: var(--ink);
+      }
+
+      .video-track::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .video-track::-webkit-scrollbar-thumb {
+        background: rgba(233, 242, 247, 0.2);
+        border-radius: 999px;
+      }
+
       .section {
         padding: 72px 0;
         position: relative;
@@ -597,6 +685,11 @@
         .parallax-slot {
           opacity: 0.32;
         }
+
+        .video-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
       }
 
       @media (max-width: 640px) {
@@ -647,6 +740,18 @@
 
         .slot-three {
           left: 24%;
+        }
+
+        .video-section {
+          padding: 72px 0;
+        }
+
+        .video-track {
+          grid-auto-columns: 88vw;
+        }
+
+        .video-card {
+          height: clamp(240px, 60vw, 360px);
         }
       }
 
@@ -713,38 +818,89 @@
           </div>
         </div>
         <div class="hero-content reveal in-view" style="--delay: 0.05s">
-          <span class="eyebrow">Founded 2025</span>
+          <span class="eyebrow">Founded 2017</span>
           <h1>Vega Capital Company operates under a B2B License.</h1>
           <p>
-            The company owns the popular slot machines BellLink, Euro Games Technology Georgia LLC, and Apex. It maintains a well-equipped,
+            The company owns the popular slot machines  Euro Games Technology Georgia LLC, and Apex. It maintains a well-equipped,
             well-maintained hall and can provide services to any licensed operator without interruption.
           </p>
         </div>
         <div class="hero-visual reveal" style="--delay: 0.2s">
           <div class="signal-card">
             <h2>Slot Machines</h2>
-            <p>BellLink, Euro Games Technology Georgia LLC, Apex.</p>
+            <p> Euro Games Technology Georgia LLC, Apex.</p>
             <div class="signal-lines">
               <div class="signal-line"><span></span></div>
               <div class="signal-line"><span></span></div>
               <div class="signal-line"><span></span></div>
             </div>
           </div>
-          <div class="floating-chip chip-top">Founded 2025</div>
+          <div class="floating-chip chip-top">Founded 2017</div>
           <div class="floating-chip chip-bottom">B2B License</div>
+        </div>
+      </section>
+
+      <section class="section wrap video-section">
+        <div class="video-header reveal" style="--delay: 0.05s">
+          <div>
+            <h3>Slot machine visuals.</h3>
+            <p>Floor footage from the slot hall.</p>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" type="button" data-carousel="prev">Prev</button>
+            <button class="carousel-btn" type="button" data-carousel="next">Next</button>
+          </div>
+        </div>
+        <div class="video-track reveal" style="--delay: 0.15s" role="list">
+          <div class="video-card" role="listitem">
+            <video
+              src="assets/1.mp4"
+              poster="assets/sm.png"
+              muted
+              loop
+              autoplay
+              playsinline
+              preload="metadata"
+              aria-label="Euro Games Technology Georgia LLC video"
+            ></video>
+            <div class="video-label">Euro Games Technology Georgia LLC</div>
+          </div>
+          <div class="video-card" role="listitem">
+            <video
+              src="assets/2.mp4"
+              poster="assets/sm.png"
+              muted
+              loop
+              autoplay
+              playsinline
+              preload="metadata"
+              aria-label="Apex video"
+            ></video>
+            <div class="video-label">Apex</div>
+          </div>
+          <div class="video-card" role="listitem">
+            <video
+              src="assets/3.mp4"
+              poster="assets/sm.png"
+              muted
+              loop
+              autoplay
+              playsinline
+              preload="metadata"
+              aria-label="Slot hall video"
+            ></video>
+            <div class="video-label">Slot Hall</div>
+          </div>
         </div>
       </section>
 
       <section id="capabilities" class="section wrap">
         <div class="reveal" style="--delay: 0.05s">
           <h3>Slot machine portfolio.</h3>
-          <p>The company owns the popular slot machines BellLink, Euro Games Technology Georgia LLC, and Apex.</p>
+          <p>The company owns the popular slot machines  Euro Games Technology Georgia LLC, and Apex.</p>
         </div>
         <div class="grid pillars">
-          <div class="card reveal" style="--delay: 0.1s">
-            <h4>BellLink</h4>
-            <p>Slot machine owned by Vega Capital Company.</p>
-          </div>
+
           <div class="card reveal" style="--delay: 0.2s">
             <h4>Euro Games Technology Georgia LLC</h4>
             <p>Slot machine owned by Vega Capital Company.</p>
@@ -755,10 +911,7 @@
           </div>
         </div>
         <div class="stats">
-          <div class="stat reveal" style="--delay: 0.1s">
-            <strong>2025</strong>
-            Year founded.
-          </div>
+
           <div class="stat reveal" style="--delay: 0.2s">
             <strong>B2B</strong>
             Operating license.
@@ -815,8 +968,8 @@
           <div>
             <h3>Company summary.</h3>
             <p>
-              Vega Capital Company was founded in 2025. Activity: B2B License. The company owns the popular slot
-              machines BellLink, Euro Games Technology Georgia LLC, and Apex. It maintains a well-equipped, well-maintained hall and can provide
+              Vega Capital Company was founded in 2017. Activity: B2B License. The company owns the popular slot
+              machines  Euro Games Technology Georgia LLC, and Apex. It maintains a well-equipped, well-maintained hall and can provide
               services to any licensed operator without interruption.
             </p>
           </div>
@@ -825,13 +978,15 @@
     </main>
 
     <footer class="footer wrap">
-      <div>Vega Capital LLC. all rights reserved 2025.</div>
+      <div>Vega Capital LLC. all rights reserved 2017.</div>
       <div>Certificate: GE-FCA-A5871</div>
     </footer>
 
     <script>
       const reveals = document.querySelectorAll(".reveal");
       const parallaxItems = document.querySelectorAll(".parallax-slot");
+      const videoTrack = document.querySelector(".video-track");
+      const carouselButtons = document.querySelectorAll("[data-carousel]");
       const hero = document.querySelector(".hero");
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const observer = new IntersectionObserver(
@@ -879,6 +1034,27 @@
         setParallax();
         window.addEventListener("scroll", handleParallax, { passive: true });
         window.addEventListener("resize", handleParallax);
+      }
+
+      if (videoTrack && carouselButtons.length) {
+        const getScrollStep = () => {
+          const card = videoTrack.querySelector(".video-card");
+          if (!card) {
+            return videoTrack.clientWidth;
+          }
+          const cardWidth = card.getBoundingClientRect().width;
+          const style = window.getComputedStyle(videoTrack);
+          const gap = Number.parseFloat(style.columnGap || style.gap || "0");
+          return cardWidth + gap;
+        };
+
+        carouselButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const direction = button.dataset.carousel === "next" ? 1 : -1;
+            const step = getScrollStep();
+            videoTrack.scrollBy({ left: direction * step, behavior: "smooth" });
+          });
+        });
       }
     </script>
   </body>
